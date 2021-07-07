@@ -1,35 +1,208 @@
-<html> 
-<head> 
+
+
+
+
+
+<!DOCTYPE>
+<html>
+<head>
+<style>
+.button {
+  background-color: #4CAF50; /* Green */
+  border: 5;
+  color: white;
+  padding: 8px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+}
+.button:hover {
+  background-color: #ff0000; /* Green */
+
+}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Feng 定時器</title>
+
+	<script src='jquery.timers-1.2.js' type='text/javascript'></script>
+	<script src="jquery-1.3.1.js" type="text/javascript"></script>
+	
+</head>
+
 <script type="text/javascript">
-var countdownnumber=5;
-var countdownid,x;
+var countdownnumber;
+var countdownid,x,sec;
 var audio = document.createElement("audio");
 
 audio.src = "dogbark.mp3";
 
-
 function initial(){
-  x=document.getElementById("countdown");
-  x.innerHTML=countdownnumber;
-  countdownnumber--;
-  countdownid=window.setInterval(countdownfunc,1000);
+    sec=document.getElementById("second");
+    sec.innerHTML="";
 }
+
 function countdownfunc(){ 
   x.innerHTML=countdownnumber;
   if (countdownnumber==0){
-    
-    /* 
-      alert("倒數結束"); 
-    */
     audio.play();
     clearInterval(countdownid);
+    x.innerHTML="";
+    sec.innerHTML="";
   }
   countdownnumber--;
 }
+
+function myMsg(myObj){
+  countdownnumber=myObj.value
+
+  x=document.getElementById("countdown");
+  
+  x.innerHTML=countdownnumber;
+  sec.innerHTML="秒";
+  countdownnumber--;
+  countdownid=window.setInterval(countdownfunc,1000);
+}
 </script>
-</head> 
-<body onload="initial();"> 
-<p>倒數時間:</p>
-<div id="countdown"> </div> 
-</body> 
+
+
+<body  onload="initial();"> 
+
+<center>
+<h1>快速100分定時器</h1>
+<form id="myForm" >
+  鬧鈴次數<input name="mtime" value="0"  style="width:20px; height:20px;">(0：無限)
+<button align="right" class="button"name="time" type="button" value="3" onclick="myMsg(this)">3秒測試</button>
+</br>
+<div id="countdown"> </div>
+<div id="second">秒</div>
+  
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  
+  <br><br>
+  
+  <button class="button"name="time" type="button" value="1" onclick="myMsg(this)">01</button>
+  <button class="button"name="time" type="button" value="2" onclick="myMsg(this)">02</button>
+  <button class="button"name="time" type="button" value="3" onclick="myMsg(this)">03</button>
+  <button class="button"name="time" type="button" value="4" onclick="myMsg(this)">04</button>
+  <button class="button"name="time" type="button" value="5" onclick="myMsg(this)">05</button>
+  <button class="button"name="time" type="button" value="6" onclick="myMsg(this)">06</button>
+  <button class="button"name="time" type="button" value="7" onclick="myMsg(this)">07</button>
+  <button class="button"name="time" type="button" value="8" onclick="myMsg(this)">08</button>
+  <button class="button"name="time" type="button" value="9" onclick="myMsg(this)">09</button>
+  <button class="button"name="time" type="button" value="10" onclick="myMsg(this)">10</button>
+  <br><br>
+  <button class="button"name="time" type="button" value="11" onclick="myMsg(this)">11</button>
+  <button class="button"name="time" type="button" value="12" onclick="myMsg(this)">12</button>
+  <button class="button"name="time" type="button" value="13" onclick="myMsg(this)">13</button>
+  <button class="button"name="time" type="button" value="14" onclick="myMsg(this)">14</button>
+  <button class="button"name="time" type="button" value="15" onclick="myMsg(this)">15</button>
+  <button class="button"name="time" type="button" value="16" onclick="myMsg(this)">16</button>
+  <button class="button"name="time" type="button" value="17" onclick="myMsg(this)">17</button>
+  <button class="button"name="time" type="button" value="18" onclick="myMsg(this)">18</button>
+  <button class="button"name="time" type="button" value="19" onclick="myMsg(this)">19</button>
+  <button class="button"name="time" type="button" value="20" onclick="myMsg(this)">20</button>
+  <br><br>
+  <button class="button"name="time" type="button" value="21" onclick="myMsg(this)">21</button>
+  <button class="button"name="time" type="button" value="22" onclick="myMsg(this)">22</button>
+  <button class="button"name="time" type="button" value="23" onclick="myMsg(this)">23</button>
+  <button class="button"name="time" type="button" value="24" onclick="myMsg(this)">24</button>
+  <button class="button"name="time" type="button" value="25" onclick="myMsg(this)">25</button>
+  <button class="button"name="time" type="button" value="26" onclick="myMsg(this)">26</button>
+  <button class="button"name="time" type="button" value="27" onclick="myMsg(this)">27</button>
+  <button class="button"name="time" type="button" value="28" onclick="myMsg(this)">28</button>
+  <button class="button"name="time" type="button" value="29" onclick="myMsg(this)">29</button>
+  <button class="button"name="time" type="button" value="30" onclick="myMsg(this)">30</button>
+  <br><br>
+  <button class="button"name="time" type="button" value="31" onclick="myMsg(this)">31</button>
+  <button class="button"name="time" type="button" value="32" onclick="myMsg(this)">32</button>
+  <button class="button"name="time" type="button" value="33" onclick="myMsg(this)">33</button>
+  <button class="button"name="time" type="button" value="34" onclick="myMsg(this)">34</button>
+  <button class="button"name="time" type="button" value="35" onclick="myMsg(this)">35</button>
+  <button class="button"name="time" type="button" value="36" onclick="myMsg(this)">36</button>
+  <button class="button"name="time" type="button" value="37" onclick="myMsg(this)">37</button>
+  <button class="button"name="time" type="button" value="38" onclick="myMsg(this)">38</button>
+  <button class="button"name="time" type="button" value="39" onclick="myMsg(this)">39</button>
+  <button class="button"name="time" type="button" value="40" onclick="myMsg(this)">40</button>
+  <br><br>
+  <button class="button"name="time" type="button" value="41" onclick="myMsg(this)">41</button>
+  <button class="button"name="time" type="button" value="42" onclick="myMsg(this)">42</button>
+  <button class="button"name="time" type="button" value="43" onclick="myMsg(this)">43</button>
+  <button class="button"name="time" type="button" value="44" onclick="myMsg(this)">44</button>
+  <button class="button"name="time" type="button" value="45" onclick="myMsg(this)">45</button>
+  <button class="button"name="time" type="button" value="46" onclick="myMsg(this)">46</button>
+  <button class="button"name="time" type="button" value="47" onclick="myMsg(this)">47</button>
+  <button class="button"name="time" type="button" value="48" onclick="myMsg(this)">48</button>
+  <button class="button"name="time" type="button" value="49" onclick="myMsg(this)">49</button>
+  <button class="button"name="time" type="button" value="50" onclick="myMsg(this)">50</button>
+  <br><br>
+  <button class="button"name="time" type="button" value="51" onclick="myMsg(this)">51</button>
+  <button class="button"name="time" type="button" value="52" onclick="myMsg(this)">52</button>
+  <button class="button"name="time" type="button" value="53" onclick="myMsg(this)">53</button>
+  <button class="button"name="time" type="button" value="54" onclick="myMsg(this)">54</button>
+  <button class="button"name="time" type="button" value="55" onclick="myMsg(this)">55</button>
+  <button class="button"name="time" type="button" value="56" onclick="myMsg(this)">56</button>
+  <button class="button"name="time" type="button" value="57" onclick="myMsg(this)">57</button>
+  <button class="button"name="time" type="button" value="58" onclick="myMsg(this)">58</button>
+  <button class="button"name="time" type="button" value="59" onclick="myMsg(this)">59</button>
+  <button class="button"name="time" type="button" value="60" onclick="myMsg(this)">60</button>
+  <br><br>
+  <button class="button"name="time" type="button" value="61" onclick="myMsg(this)">61</button>
+  <button class="button"name="time" type="button" value="62" onclick="myMsg(this)">62</button>
+  <button class="button"name="time" type="button" value="63" onclick="myMsg(this)">63</button>
+  <button class="button"name="time" type="button" value="64" onclick="myMsg(this)">64</button>
+  <button class="button"name="time" type="button" value="65" onclick="myMsg(this)">65</button>
+  <button class="button"name="time" type="button" value="66" onclick="myMsg(this)">66</button>
+  <button class="button"name="time" type="button" value="67" onclick="myMsg(this)">67</button>
+  <button class="button"name="time" type="button" value="68" onclick="myMsg(this)">68</button>
+  <button class="button"name="time" type="button" value="69" onclick="myMsg(this)">69</button>
+  <button class="button"name="time" type="button" value="70" onclick="myMsg(this)">70</button>
+  <br><br>
+  <button class="button"name="time" type="button" value="71" onclick="myMsg(this)">71</button>
+  <button class="button"name="time" type="button" value="72" onclick="myMsg(this)">72</button>
+  <button class="button"name="time" type="button" value="73" onclick="myMsg(this)">73</button>
+  <button class="button"name="time" type="button" value="74" onclick="myMsg(this)">74</button>
+  <button class="button"name="time" type="button" value="75" onclick="myMsg(this)">75</button>
+  <button class="button"name="time" type="button" value="76" onclick="myMsg(this)">76</button>
+  <button class="button"name="time" type="button" value="77" onclick="myMsg(this)">77</button>
+  <button class="button"name="time" type="button" value="78" onclick="myMsg(this)">78</button>
+  <button class="button"name="time" type="button" value="79" onclick="myMsg(this)">79</button>
+  <button class="button"name="time" type="button" value="80" onclick="myMsg(this)">80</button>
+  <br><br>
+  <button class="button"name="time" type="button" value="81" onclick="myMsg(this)">81</button>
+  <button class="button"name="time" type="button" value="82" onclick="myMsg(this)">82</button>
+  <button class="button"name="time" type="button" value="83" onclick="myMsg(this)">83</button>
+  <button class="button"name="time" type="button" value="84" onclick="myMsg(this)">84</button>
+  <button class="button"name="time" type="button" value="85" onclick="myMsg(this)">85</button>
+  <button class="button"name="time" type="button" value="86" onclick="myMsg(this)">86</button>
+  <button class="button"name="time" type="button" value="87" onclick="myMsg(this)">87</button>
+  <button class="button"name="time" type="button" value="88" onclick="myMsg(this)">88</button>
+  <button class="button"name="time" type="button" value="89" onclick="myMsg(this)">89</button>
+  <button class="button"name="time" type="button" value="90" onclick="myMsg(this)">90</button>
+  <br><br>
+  <button class="button"name="time" type="button" value="91" onclick="myMsg(this)">91</button>
+  <button class="button"name="time" type="button" value="92" onclick="myMsg(this)">92</button>
+  <button class="button"name="time" type="button" value="93" onclick="myMsg(this)">93</button>
+  <button class="button"name="time" type="button" value="94" onclick="myMsg(this)">94</button>
+  <button class="button"name="time" type="button" value="95" onclick="myMsg(this)">95</button>
+  <button class="button"name="time" type="button" value="96" onclick="myMsg(this)">96</button>
+  <button class="button"name="time" type="button" value="97" onclick="myMsg(this)">97</button>
+  <button class="button"name="time" type="button" value="98" onclick="myMsg(this)">98</button>
+  <button class="button"name="time" type="button" value="99" onclick="myMsg(this)">99</button>
+  <button class="button"name="time" type="button" value="100" onclick="myMsg(this)">100</button>
+  <br>
+</form>
+</center>
+</body>
 </html>
+
+
+
+
+
