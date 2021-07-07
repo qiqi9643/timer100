@@ -3,6 +3,11 @@
 <script type="text/javascript">
 var countdownnumber=5;
 var countdownid,x;
+var audio = document.createElement("audio");
+
+audio.src = "dogbark.mp3";
+audio.play();
+
 function initial(){
   x=document.getElementById("countdown");
   x.innerHTML=countdownnumber;
@@ -12,6 +17,7 @@ function initial(){
 function countdownfunc(){ 
   x.innerHTML=countdownnumber;
   if (countdownnumber==0){
+    audio.play();
     alert("倒數結束");
     clearInterval(countdownid);
   }
