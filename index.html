@@ -54,7 +54,7 @@ function countdownfunc(){
 }
 
 function myMsg(myObj){
-  countdownnumber=myObj.value
+  countdownnumber=myObj.value * 60;
 
   x=document.getElementById("countdown");
   
@@ -72,7 +72,7 @@ function myMsg(myObj){
 <h1>快速100分定時器</h1>
 <form id="myForm" >
   鬧鈴次數<input name="mtime" value="0"  style="width:20px; height:20px;">(0：無限)
-<button align="right" class="button"name="time" type="button" value="3" onclick="myMsg(this)">3秒測試</button>
+<button align="right" class="button"name="time" type="button" value="0.05" onclick="myMsg(this)">3秒測試</button>
 </br>
 <div id="countdown"> </div>
 <div id="second">秒</div>
