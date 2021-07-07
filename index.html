@@ -6,7 +6,7 @@ var countdownid,x;
 var audio = document.createElement("audio");
 
 audio.src = "dogbark.mp3";
-audio.play();
+
 
 function initial(){
   x=document.getElementById("countdown");
@@ -16,7 +16,7 @@ function initial(){
 }
 function countdownfunc(){ 
   x.innerHTML=countdownnumber;
-  if (x.innerHTML==0){
+  if (countdownnumber==0){
     
     /* 
       alert("倒數結束"); 
