@@ -17,8 +17,9 @@ function initial(){
 function countdownfunc(){ 
   x.innerHTML=countdownnumber;
   if (countdownnumber==0){
+    
+    /* alert("倒數結束"); */
     audio.play();
-    alert("倒數結束");
     clearInterval(countdownid);
   }
   countdownnumber--;
