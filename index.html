@@ -32,20 +32,32 @@
 
 <script type="text/javascript">
 var countdownnumber;
-var countdownid,x,sec;
-var audio = document.createElement("audio");
+var countdownid,x,sec,min,ring,i;
+//var audio = document.createElement("audio");
 
-audio.src = "dogbark.mp3";
+
+function wait(ms)
+{
+    var d = new Date();
+    var d2 = null;
+    do { d2 = new Date(); }
+    while(d2-d < ms);
+}
 
 function initial(){
     sec=document.getElementById("second");
+    ring=document.getElementById("myAudio");
+    
     sec.innerHTML="";
+      
 }
 
 function countdownfunc(){ 
   x.innerHTML=countdownnumber;
   if (countdownnumber==0){
-    audio.play();
+    
+    ring.play();
+    ring.loop =true;
     clearInterval(countdownid);
     x.innerHTML="";
     sec.innerHTML="";
@@ -55,7 +67,7 @@ function countdownfunc(){
 
 function myMsg(myObj){
   countdownnumber=myObj.value * 60;
-
+  
   x=document.getElementById("countdown");
   
   x.innerHTML=countdownnumber;
@@ -70,22 +82,33 @@ function myMsg(myObj){
 
 <center>
 <h1>快速100分定時器</h1>
-<form id="myForm" >
-  鬧鈴次數<input name="mtime" value="0"  style="width:20px; height:20px;">(0：無限)
-<button align="right" class="button"name="time" type="button" value="0.05" onclick="myMsg(this)">3秒測試</button>
-</br>
+
+  
+  <audio id="myAudio" controls>
+  <source src="horse.ogg" type="audio/ogg">
+  <source src="dogbark.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio><br>
 <div id="countdown"> </div>
 <div id="second">秒</div>
+
+
   
+  	
+  
+  <form>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  
-  <br><br>
+  <button class="button"name="time" type="button" value="0.05" onclick="myMsg(this)">3秒測試</button>
+</br>
+  <br>
   
   <button class="button"name="time" type="button" value="1" onclick="myMsg(this)">01</button>
   <button class="button"name="time" type="button" value="2" onclick="myMsg(this)">02</button>
