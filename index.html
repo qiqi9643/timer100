@@ -21,6 +21,17 @@
   background-color: #ff0000; /* Green */
 
 }
+div.a {
+  font-size: 80px;
+}
+
+div.b {
+  font-size: large;
+}
+
+div.c {
+  font-size: 150%;
+}
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Feng 定時器</title>
@@ -32,35 +43,39 @@
 
 <script type="text/javascript">
 var countdownnumber;
-var countdownid,x,sec,min,ring,i;
-//var audio = document.createElement("audio");
+var countdownid,x,ring;
+var secname, minname;
+var secvalue,minvalue;
 
-
-function wait(ms)
-{
-    var d = new Date();
-    var d2 = null;
-    do { d2 = new Date(); }
-    while(d2-d < ms);
-}
 
 function initial(){
-    sec=document.getElementById("second");
+    minname=document.getElementById("minname");
+    secname=document.getElementById("secname");
+    
+    minvalue=document.getElementById("minvalue");
+    secvalue=document.getElementById("secvalue");
+    
     ring=document.getElementById("myAudio");
     
-    sec.innerHTML="";
+    minname.innerHTML="";
+    secname.innerHTML="";
+    minvalue.innerHTML="";
+    secvalue.innerHTML="";
       
 }
 
 function countdownfunc(){ 
-  x.innerHTML=countdownnumber;
+  minvalue.innerHTML=parseInt(countdownnumber/60);
+  secvalue.innerHTML=countdownnumber % 60;
   if (countdownnumber==0){
     
     ring.play();
     ring.loop =true;
     clearInterval(countdownid);
-    x.innerHTML="";
-    sec.innerHTML="";
+    minvalue.innerHTML="";
+    secvalue.innerHTML="";
+    minname.innerHTML="";
+    secname.innerHTML="";
   }
   countdownnumber--;
 }
@@ -68,12 +83,16 @@ function countdownfunc(){
 function myMsg(myObj){
   countdownnumber=myObj.value * 60;
   
-  x=document.getElementById("countdown");
+  minname.innerHTML="分";
+  secname.innerHTML="秒";
   
-  x.innerHTML=countdownnumber;
-  sec.innerHTML="秒";
   countdownnumber--;
   countdownid=window.setInterval(countdownfunc,1000);
+}
+function stopmusic(){
+    ring.pause();
+    ring.currentTime = 0;
+
 }
 </script>
 
@@ -84,13 +103,16 @@ function myMsg(myObj){
 <h1>快速100分定時器</h1>
 
   
-  <audio id="myAudio" controls>
-  <source src="horse.ogg" type="audio/ogg">
+  <audio id="myAudio" >
   <source src="dogbark.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio><br>
-<div id="countdown"> </div>
-<div id="second">秒</div>
+<button  class="button"name="time" onclick="stopmusic();">停止鬧鐘</button>
+
+<div class="a" id="minvalue"> </div>
+<div class="a" id="minname">分</div>
+<div class="a" id="secvalue"> </div>
+<div class="a" id="secname">秒</div>
 
 
   
