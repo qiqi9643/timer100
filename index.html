@@ -45,6 +45,7 @@ var countdownid; //setInterval的傳回值，讓clearInterval使用
 var ring; //設定audio
 var secname, minname; //分和秒的國字
 var secvalue,minvalue; //分和秒的值
+var mp3;
 
 
 function initial(){
@@ -56,6 +57,8 @@ function initial(){
     secvalue=document.getElementById("secvalue");
     
     ring=document.getElementById("myAudio");
+    mp3=document.getElementById("alarm");
+    
     
     minname.innerHTML="";
     secname.innerHTML="";
@@ -68,7 +71,7 @@ function countdownfunc(){
   minvalue.innerHTML=parseInt(countdownnumber/60); //依計時秒數取分
   secvalue.innerHTML=countdownnumber % 60; //依計時秒數取秒
       if (countdownnumber==0){ //計時結束時該做的事
-    
+        ring.src=mp3.value;
         ring.play(); 
         ring.loop =true;
         clearInterval(countdownid); //結束setInterval的動作
@@ -108,12 +111,21 @@ function stopmusic(){
 
 <!-- 建立audio -->  
 <audio id="myAudio" >
-<source src="dogbark.mp3" type="audio/mpeg">
+<source src="ring01.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio><br>
 
 <button  class="button"name="time" onclick="stopmusic();">停止鬧鐘</button>
-
+選擇鬧鈴聲
+<select id="alarm" >
+    <option value="ring01.mp3">ring01</option>
+    <option value="ring02.mp3">ring02</option>
+    <option value="ring03.mp3">ring03</option>
+    <option value="ring04.mp3">ring04</option>
+    <option value="ring05.mp3">ring05</option>
+    <option value="ring06.mp3">ring06</option>
+    <option value="ring07.mp3">ring07</option>
+</select>
 <!-- 倒數顯示區 -->
 <div class="a" id="minvalue"> </div>
 <div class="a" id="minname">分</div>
