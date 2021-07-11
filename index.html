@@ -86,6 +86,8 @@ function countdownfunc(){
 
 //開始倒數
 function myMsg(myObj){
+  ring.pause();
+  ring.currentTime = 0;
   countdownnumber=myObj.value * 60; //換成秒數
   
   minname.innerHTML="分"; 
@@ -100,6 +102,11 @@ function stopmusic(){
     ring.pause();
     ring.currentTime = 0;
 
+}
+function listen(){
+  ring.src=mp3.value;
+  ring.currentTime = 0;
+  ring.play();
 }
 </script>
 
@@ -117,7 +124,7 @@ function stopmusic(){
 
 <button  class="button"name="time" onclick="stopmusic();">停止鬧鐘</button>
 選擇鬧鈴聲
-<select id="alarm" >
+<select id="alarm"  onchange="listen();">
     <option value="ring01.mp3">ring01</option>
     <option value="ring02.mp3">ring02</option>
     <option value="ring03.mp3">ring03</option>
